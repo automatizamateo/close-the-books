@@ -21,7 +21,7 @@ import dev  # noqa: E402
 
 ap = argparse.ArgumentParser()
 ap.add_argument("run")
-ap.add_argument("--data", default=os.path.expanduser("~/hackdata/data_dev"))
+ap.add_argument("--data", default=os.path.expanduser(os.environ.get("BANKREC_HOME", "~/hackdata") + "/data_dev"))
 a = ap.parse_args()
 D = a.data
 RUN = os.path.join(dev.ROOT, "dev_runs", a.run)

@@ -6,7 +6,7 @@ set -euo pipefail
 HERE="$(cd "$(dirname "$0")" && pwd)"
 PY="${BANKREC_PY:-}"
 if [ -z "$PY" ]; then
-  for c in "$HOME/hackdata/.venv/bin/python" python3; do
+  for c in "${BANKREC_HOME:-$HOME/hackdata}/.venv/bin/python" python3; do
     if "$c" -c "import pandas, duckdb, pyarrow" >/dev/null 2>&1; then PY="$c"; break; fi
   done
 fi

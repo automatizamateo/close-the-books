@@ -27,7 +27,7 @@ import dev  # noqa: E402
 import make_dev_dataset as M  # noqa: E402
 
 D = dev.dataset_dir(*dev.DEFAULT, False)
-SRC = os.path.expanduser("~/hackdata/data")
+SRC = os.path.expanduser(os.environ.get("BANKREC_HOME", "~/hackdata") + "/data")
 START, END = dev.DEFAULT
 con = duckdb.connect()
 results = []

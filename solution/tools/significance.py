@@ -126,7 +126,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("trunk")
     ap.add_argument("candidate")
-    ap.add_argument("--data", default="~/hackdata/data_dev")
+    ap.add_argument("--data", default=os.path.expanduser(os.environ.get("BANKREC_HOME", "~/hackdata") + "/data_dev"))
     ap.add_argument("--json")
     a = ap.parse_args()
     data = os.path.abspath(os.path.expanduser(a.data))

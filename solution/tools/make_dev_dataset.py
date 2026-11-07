@@ -217,7 +217,7 @@ def main():
     ap.add_argument("--start", required=True)
     ap.add_argument("--end", required=True)
     ap.add_argument("--out", required=True)
-    ap.add_argument("--src", default=os.path.expanduser("~/hackdata/data"), help="folder with train/ and masters/")
+    ap.add_argument("--src", default=os.path.expanduser(os.environ.get("BANKREC_HOME", "~/hackdata") + "/data"), help="folder with train/ and masters/")
     a = ap.parse_args()
     st = build(a.src, a.out, date.fromisoformat(a.start), date.fromisoformat(a.end))
     print(json.dumps(st, indent=1))

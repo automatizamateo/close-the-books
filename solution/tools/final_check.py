@@ -52,7 +52,7 @@ def v6b_chain(path):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--phase", default="final", choices=["live", "final"])
-    ap.add_argument("--data", default=os.path.expanduser("~/hackdata/data"))
+    ap.add_argument("--data", default=os.path.expanduser(os.environ.get("BANKREC_HOME", "~/hackdata") + "/data"))
     ap.add_argument("--sub")
     ap.add_argument("--skip-ledger", action="store_true")
     a = ap.parse_args()

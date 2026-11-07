@@ -57,7 +57,7 @@ def git(*args):
 def dataset_dir(start, end, sealed, out=None):
     if out:
         return os.path.abspath(os.path.expanduser(out))
-    base = os.path.expanduser("~/hackdata")
+    base = os.path.expanduser(os.environ.get("BANKREC_HOME", "~/hackdata") + "")
     if (start, end) == DEFAULT:
         return os.path.join(base, "data_dev")
     if (start, end) == SEALED:
@@ -365,7 +365,7 @@ def main():
     ap.add_argument("--sealed", action="store_true", help="use the sealed window 2025-01-01..2025-02-28")
     ap.add_argument("--out", default=None, help="dataset directory (default: ~/hackdata/data_dev*, one per window); "
                     "use your own to run a different window in parallel without touching data_dev")
-    ap.add_argument("--src", default=os.path.expanduser("~/hackdata/data"), help="extracted hackathon data (train/, masters/)")
+    ap.add_argument("--src", default=os.path.expanduser(os.environ.get("BANKREC_HOME", "~/hackdata") + "/data"), help="extracted hackathon data (train/, masters/)")
     ap.add_argument("--engine", choices=["v35", "v3"], default="v35" if os.path.exists(os.path.join(CODE, "src", "pipeline.py")) else "v3",
                     help="v35 = solution/bankrec.py + src/pipeline.py passes (as run_v35.sh); v3 = solution/bankrec.py alone")
     ap.add_argument("--rebuild", action="store_true", help="rebuild the dev dataset")

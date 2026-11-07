@@ -36,7 +36,7 @@ import compare  # noqa: E402
 
 REPO = os.path.abspath(os.path.join(HERE, "..", ".."))
 INTEGRATION = os.environ.get("INTEGRATION_BRANCH", "model/v3-harness")
-HOME = os.path.expanduser("~/hackdata")
+HOME = os.path.expanduser(os.environ.get("BANKREC_HOME", "~/hackdata") + "")
 WT = os.path.join(HOME, "wt")
 VIEWS = os.path.join(HOME, "wt_data")
 RUNS = os.path.join(REPO, "dev_runs")
