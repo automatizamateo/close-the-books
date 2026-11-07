@@ -1,0 +1,11 @@
+# hackathon data and anything derived from it is never tracked
+/masters/
+/train/
+/live/
+/final/
+/sample/
+/starter/
+data*/ hackdata/ wt_data/ cache/ solution/cache/ dev_runs/
+*.csv *.csv.gz *.parquet *.pdf *.xlsx *.n43 *.sta *.xml *.tar.gz *.zip
+.env .env.* *.pem *.key
+.venv/ __pycache__/ *.pyc .DS_Store ._*
